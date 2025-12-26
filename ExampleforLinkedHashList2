@@ -1,0 +1,46 @@
+import java.util.LinkedHashSet;
+
+class Student {
+    private String rollno;
+    private String name;
+    private String email;
+
+    public Student(String rollno, String name, String email) {
+        this.rollno = rollno;
+        this.name = name;
+        this.email = email;
+    }
+
+    public String getRollNo() {
+        return rollno;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public String toString() {
+        return "Student[rollno=" + rollno + ", name=" + name + ", email=" + email + "]";
+    }
+}
+
+public class ExampleforLinkedHashList2 {
+    public static void main(String[] args) {
+        Student s1 = new Student("A111", "sasi", "sasi@gmail");
+        Student s2 = new Student("A108", "sway", "sway@gmail");
+
+        LinkedHashSet<Student> lhs = new LinkedHashSet<>();
+        lhs.add(s1);
+        lhs.add(s2);
+
+        for (Student s : lhs) {
+            System.out.println(s);
+        }
+        System.out.println(lhs.size());
+    }
+}
