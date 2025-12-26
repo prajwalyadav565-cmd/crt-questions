@@ -1,0 +1,37 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class ExampleforStatement {
+    public static void main(String[] args) {
+         String jdbcurl = "jdbc:mysql://localhost:3306/ctr";
+        String username = "root";
+        String password = "dwa@123";
+        try {
+            Connection c = DriverManager.getConnection(jdbcurl,username,password);
+            Statement s = c.createStatement();
+          /*  String createtable ="CREATE TABLE user1 (id  INT primary key,name varchar(26) not null)";
+            s.execute(createtable);
+            System.out.println("table created succesfully");
+            String insertData="insert into user1(id,name) values(1,'dwaraka'),(2,'sasi')";
+            int rowsAffected=s.executeUpdate(insertData);
+            System.out.println(rowsAffected+"record successfully");
+            String retrieve ="select * from user1";
+            s.executeQuery(retrieve);*/
+            String retrieve="select Firstname,Lastname,Phone,Email from student1";
+            ResultSet result = s.executeQuery(retrieve);
+            while (result.next()) {
+                String Firstname=result.getString("firstname");
+                 String Lastname=result.getString("lastname");
+                 String Phone=result.getString("phone");
+                 String Email=result.getString("email");
+                 System.out.println("Firstname "+Firstname +" Lastname "+ Lastname +" Phone "+ Phone +" Email "+ Email);
+            }
+            s.close();
+            c.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
