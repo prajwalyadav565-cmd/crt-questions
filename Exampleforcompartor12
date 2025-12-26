@@ -1,0 +1,62 @@
+import java.util.*;
+
+// Student class
+class Student2 {
+    private String rollno;
+    private String name;
+
+    public Student2(String rollno, String name) {
+        this.rollno = rollno;
+        this.name = name;
+    }
+
+    public String getRollNo() {
+        return rollno;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student2[rollno=" + rollno + ", name=" + name + "]";
+    }
+}
+
+// Comparator by Name
+class NameComparator implements Comparator<Student2> {
+    @Override
+    public int compare(Student2 s1, Student2 s2) {
+        return s1.getName().compareTo(s2.getName());
+    }
+}
+
+// Comparator by Roll No
+class RollNoComparator implements Comparator<Student2> {
+    @Override
+    public int compare(Student2 s1, Student2 s2) {
+        return s1.getRollNo().compareTo(s2.getRollNo());
+    }
+}
+
+// Main class
+public class Exampleforcompartor12 {
+    public static void main(String[] args) {
+        Student2 t1 = new Student2("cm031", "joythi");
+        Student2 t2 = new Student2("cm033", "jaya");
+        Student2 t3 = new Student2("cm042", "hasan");
+
+        ArrayList<Student2> a = new ArrayList<Student2>();
+        a.add(t1);
+        a.add(t2);
+        a.add(t3);
+
+        // Sort by Roll No
+        Collections.sort(a, new RollNoComparator());
+
+        for (Student2 obj : a) {
+            System.out.println(obj);
+        }
+    }
+}
