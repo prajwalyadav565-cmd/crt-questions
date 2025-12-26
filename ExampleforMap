@@ -1,0 +1,14 @@
+import java.util.*;
+
+public class ExampleforMap {
+    public static void main(String[] args) {
+        HashMap<String,String> h = new HashMap<String,String>();
+        h.put("Name", "dwaraka");
+        h.put("place", "pachikalva");
+        System.out.println(h);
+        System.out.println(h.get("Name"));
+        for (Object i : h.keySet()) {
+            System.out.println(i);
+        }
+    }
+}
